@@ -1,0 +1,262 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #F7F7D1;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.controls {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.filter-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Sticky Note Design */
+.sticky-note {
+    background-color: #fff478;
+    padding: 15px;
+    border-radius: 2px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
+    position: relative;
+    transform: rotate(0deg);
+    transition: all 0.2s ease;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Random rotation and colors for realistic effect */
+.sticky-note:nth-child(3n+2) {
+    transform: rotate(-1deg);
+    background-color: #fff478; /* Yellow */
+}
+
+.sticky-note:nth-child(3n+3) {
+    transform: rotate(1deg);
+    background-color: #ff7eb9; /* Pink */
+}
+
+.sticky-note:nth-child(3n+4) {
+    transform: rotate(0deg);
+    background-color: #7afcff; /* Blue */
+}
+
+.sticky-note:hover {
+    transform: scale(1.02) rotate(0deg);
+    z-index: 10;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Add Button Card */
+.add-button {
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 200px;
+    font-size: 3rem;
+    color: #555;
+    border: 2px dashed #aaa;
+    border-radius: 2px;
+}
+
+.add-button:hover {
+    background-color: #d0d0d0;
+    transform: scale(1.02);
+}
+
+.task-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed rgba(0,0,0,0.2);
+}
+
+.task-desc {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.task-due {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.task-due::before {
+    content: "📅";
+    margin-right: 5px;
+}
+
+.task-category {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,0.1);
+    display: inline-block;
+    align-self: flex-start;
+}
+
+select, input, textarea {
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+textarea, input[type="text"], input[type="date"] {
+    width: 100%;
+}
+
+select {
+    background-color: white;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s;
+}
+
+.edit-btn {
+    background-color: #4285f4;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #ea4335;
+    color: white;
+}
+
+.save-btn {
+    background-color: #34a853;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #fbbc05;
+    color: white;
+}
+
+.clear-btn {
+    background-color: #ea4335;
+    color: white;
+}
+
+.btn:hover {
+    filter: brightness(90%);
+}
+
+.task-tools {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    gap: 5px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.sticky-note:hover .task-tools {
+    opacity: 1;
+}
+
+.tool-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.tool-btn:hover {
+    background-color: rgba(255,255,255,1);
+}
+
+/* Sort direction indicator */
+.sort-direction {
+    display: inline-block;
+    width: 10px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

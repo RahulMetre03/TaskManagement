@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management App</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Task Management App</h1>
+
+        <div class="controls">
+            <div class="filter-group">
+                <span class="filter-label">Filter:</span>
+                <select id="filterCategory">
+                    <option value="All">All Categories</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Urgent">Urgent</option>
+                    <option value="Learning">Learning</option>
+                    <option value="Health">Health</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">Sort by:</span>
+                <select id="sortBy">
+                    <option value="title">Title</option>
+                    <option value="dueDate">Due Date</option>
+                    <option value="category">Category</option>
+                </select>
+                <button id="sortDirectionBtn" class="btn">
+                    <span id="sortDirection" class="sort-direction">↓</span>
+                </button>
+            </div>
+
+            <button class="btn clear-btn" id="clearAllBtn">Clear All</button>
+        </div>
+
+
+        <h1>Add your tasks</h1>
+        <div class="add-button" id="addTaskBtn">+</div>
+        <br>
+        <br>
+    
+        <div id="taskGrid" class="grid">
+            <div class="add-button" id="addTaskBtn"><h1>+</h1></div>
+            <!-- Add button will be the first card -->
+
+
+            <!-- Tasks will be generated here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
